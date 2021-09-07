@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router';
 import { ArrowBackOutlined, Movie } from '@material-ui/icons';
 import './watch.scss';
+import {Link} from 'react-router-dom'
 
 export default function Watch() {
   // Refers back to the ListItem.jsx to the <Link> tag

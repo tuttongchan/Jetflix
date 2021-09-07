@@ -66,7 +66,7 @@ router.get('/', verify, async (req, res) => {
       // If no query fetch all users, if there is fetch 10
       // User.find().sort({_id:-1}).limit(10) ----- .sort({_id:-1}) means it is going to fetch the latest data
       const users = query
-        ? await User.find().sort({ _id: 1 }).limit(10)
+        ? await User.find().sort({ _id: -1 }).limit(5)
         : await User.find();
       res.status(200).json(users);
     } catch (error) {
@@ -83,8 +83,6 @@ router.get('/stats', async (req, res) => {
 
   // Gives the last year
   const lastYear = today.setFullYear(today.setFullYear() - 1);
-
-  const monthsArray = [];
 
   try {
     const data = await User.aggregate([
